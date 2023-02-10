@@ -1,0 +1,93 @@
+package guiFrame;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Toolkit;
+import javax.swing.JTextField;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import javax.swing.JTextPane;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+public class lastframe extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField userEmail;
+	private JPasswordField userPassword;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					lastframe frame = new lastframe();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public lastframe() {
+		setTitle("Login Page");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(lastframe.class.getResource("/guiFrame/think.JPG")));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Email:");
+		lblNewLabel.setLabelFor(this);
+		lblNewLabel.setBounds(103, 23, 36, 26);
+		contentPane.add(lblNewLabel);
+		
+		userEmail = new JTextField();
+		userEmail.setBounds(149, 26, 264, 20);
+		contentPane.add(userEmail);
+		userEmail.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("Password:");
+		lblNewLabel_1.setBounds(103, 90, 55, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("      Login\r\n");
+		btnNewButton.setVerticalAlignment(SwingConstants.TOP);
+		btnNewButton.setToolTipText("");
+		btnNewButton.setForeground(new Color(0, 0, 255));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(userEmail.equals("samueltobi032@gmail.com")&& userPassword.equals("12345678")) {
+					System.out.println("Welcome!!");
+				}
+				else
+					System.out.print("Try again later");
+			}
+		});
+		btnNewButton.setBounds(243, 173, 151, 37);
+		contentPane.add(btnNewButton);
+		
+		userPassword = new JPasswordField();
+		userPassword.setBounds(168, 87, 205, 20);
+		contentPane.add(userPassword);
+	}
+}
